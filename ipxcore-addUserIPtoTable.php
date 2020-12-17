@@ -5,7 +5,8 @@
 
 function ipxcoreaddIPToList($vars) {
 
-	$userid = $vars['userid'];
+	$user = $vars['user'];
+	$userid = $user->id;
 	$ipaddress =  $_SERVER['REMOTE_ADDR'];
 	$desc = "Client area login from: " . gethostbyaddr($ipaddress);
 	$user = "Client";
@@ -16,6 +17,6 @@ function ipxcoreaddIPToList($vars) {
 
 }
 
-add_hook('ClientLogin', 1, 'ipxcoreaddIPToList');
+add_hook('UserLogin', 1, 'ipxcoreaddIPToList');
 
 ?>
